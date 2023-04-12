@@ -5,8 +5,8 @@ ENV POSTGRES_USER root
 ENV POSTGRES_PASSWORD foo
 
 COPY schema.sh /docker-entrypoint-initdb.d/
-COPY initdb/* /tmp/
 
-RUN mkdir -p /share/dbs && chown postgres.postgres /share/dbs
+RUN mkdir -p /share/dbs && mkdir /share/sql && chown -R postgres.postgres /share
+COPY initdb/* /share/sql/
 
 CMD ["postgres", "-c", "max_wal_size=2GB"]
