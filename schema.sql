@@ -11,6 +11,8 @@ create table geoip2_network (
   accuracy_radius int
 );
 
+create index on geoip2_network using gist (network inet_ops);
+
 copy geoip2_network(
   network, geoname_id, registered_country_geoname_id, represented_country_geoname_id,
   is_anonymous_proxy, is_satellite_provider, postal_code, latitude, longitude, accuracy_radius
