@@ -5,3 +5,5 @@ ENV POSTGRES_USER root
 ENV POSTGRES_PASSWORD foo
 
 COPY schema.sql /docker-entrypoint-initdb.d/
+
+CMD ["postgres", "-c", "max_wal_size=2GB"]
