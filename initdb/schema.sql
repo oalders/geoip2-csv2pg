@@ -8,7 +8,14 @@ create table geoip2_network (
   postal_code text,
   latitude numeric,
   longitude numeric,
-  accuracy_radius int
+  isp_id text,
+  is_legitimate_proxy bool,
+  domain text,
+  accuracy_radius int,
+  country_confidence int,
+  subdivision_confidence int,
+  city_confidence int,
+  postal_confidence int
 );
 
 create index on geoip2_network using gist (network inet_ops);
