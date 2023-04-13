@@ -26,7 +26,7 @@ create table geoip2_network (
   subdivision_confidence int,
   city_confidence int,
   postal_confidence int,
-  product_id text
+  product_id text NOT NULL
 );
 
 create index on geoip2_network using gist (network inet_ops);

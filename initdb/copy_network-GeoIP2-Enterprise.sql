@@ -1,3 +1,8 @@
+ALTER TABLE geoip2_network
+ALTER COLUMN product_id
+DROP NOT NULL
+;
+
 copy geoip2_network(
   network,
   geoname_id,
@@ -17,3 +22,10 @@ copy geoip2_network(
   city_confidence,
   postal_confidence
 ) from :'file' with (format csv, header);
+
+UPDATE geoip2_network SET product_id = :'product_id' WHERE product_id IS NULL;
+
+ALTER TABLE geoip2_network
+ALTER COLUMN product_id
+SET NOT NULL
+;
