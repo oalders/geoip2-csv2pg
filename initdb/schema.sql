@@ -1,3 +1,13 @@
+create table anonymous_network (
+  network cidr not null,
+  is_anonymous bool,
+  is_anonymous_vpn bool,
+  is_hosting_provider bool,
+  is_public_proxy bool,
+  is_tor_exit_node bool,
+  is_residential_proxy bool
+);
+
 create table geoip2_network (
   network cidr not null,
   geoname_id int,
@@ -15,7 +25,8 @@ create table geoip2_network (
   country_confidence int,
   subdivision_confidence int,
   city_confidence int,
-  postal_confidence int
+  postal_confidence int,
+  product_id text
 );
 
 create index on geoip2_network using gist (network inet_ops);
