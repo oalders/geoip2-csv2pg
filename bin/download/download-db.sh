@@ -3,9 +3,10 @@
 set -eux -o pipefail
 
 DATABASES=("GeoIP2-Anonymous-IP" "GeoLite2-City" "GeoIP2-Enterprise")
-SHARE_DIR=share
+SHARE_DIR=/root/share
 mkdir -p $SHARE_DIR
 pushd $SHARE_DIR || exit 1
+find .
 
 for I in "${!DATABASES[@]}"; do
     PRODUCT=${DATABASES[$I]}
@@ -31,8 +32,7 @@ for I in "${!DATABASES[@]}"; do
 
     # Fix up filename in downloaded SHA so that the check doesn't choke on it
     perl -pi -e 's/_\d+//g' "${ARCHIVE_NAME}.sha256"
-    ls
-    sha256sum --check --status "$SHA_FILE" "${ARCHIVE_NAME}.sha256"
+    sha256sum -c -s "$SHA_FILE" "${ARCHIVE_NAME}.sha256"
 
     DBS="dbs/${PRODUCT}"
     mkdir -p "$DBS"

@@ -7,11 +7,17 @@ PostgreSQL. It's not meant as a solution to deploy to production.
 
 ## Step 1: Download the databases
 
+### Build the Docker container which runs the downloader
+
+```text
+./bin/download/docker-build.sh
+```
+
 Run the following script, replacing the word `SEEKRIT` with a MaxMind license
 key.
 
 ```text
-MM_LICENSE_KEY=SEEKRIT ./bin/download-db.sh
+MM_LICENSE_KEY=SEEKRIT ./bin/download/docker-run.sh
 ```
 
 You may run this script as often as you like. It will download a database if
