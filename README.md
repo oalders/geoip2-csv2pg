@@ -1,11 +1,16 @@
 # 🔎 MaxMind CSV to Pg
 
 The purpose of this repository is to make it easy to import MaxMind's
-GeoLite2-City CSV databases into a local Docker 🐳 container which is running
+GeoLite2/GeoIP2 CSV databases into a local Docker 🐳 container which is running
 PostgreSQL. This is meant to provide an easy way to query the CSV data in
 PostgreSQL. It's not meant as a solution to deploy to production.
 
 ## Step 1: Download the databases
+
+Before you get started, edit the `DATABASES` variable in
+`bin/download/download-db.sh`. The currently tested list of databases is:
+`"GeoIP2-Anonymous-IP" "GeoLite2-City" "GeoIP2-Enterprise"`. Once you are happy
+with this list you are ready to build the container.
 
 ### Build the Docker container which runs the downloader
 
