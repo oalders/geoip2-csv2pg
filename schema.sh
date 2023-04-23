@@ -21,4 +21,9 @@ for PRODUCT in "${PRODUCTS[@]}"; do
     if [[ -f $LOCATIONS_FILE ]]; then
         psql -d mm_database -U root -a -v "ON_ERROR_STOP=1" -v file="$LOCATIONS_FILE" -f /share/sql/copy_location.sql
     fi
+
+    ISP_FILE="${FILE_PREFIX}-ISP.csv"
+    if [[ -f $ISP_FILE ]]; then
+        psql -d mm_database -U root -a -v "ON_ERROR_STOP=1" -v file="$ISP_FILE" -f /share/sql/copy_isp.sql
+    fi
 done

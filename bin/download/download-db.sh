@@ -42,6 +42,7 @@ for I in "${!DATABASES[@]}"; do
     unzip "$ARCHIVE_NAME" -d "$TMPDIR"
     find "$TMPDIR" -type f -name '*Blocks*' -print0 | xargs -0 -I '{}' cp '{}' "${DBS}/"
     find "$TMPDIR" -type f -name "${PRODUCT}-Locations-en.csv" -print0 | xargs -0 -I '{}' cp '{}' "${DBS}/"
+    find "$TMPDIR" -type f -name "${PRODUCT}-ISP.csv" -print0 | xargs -0 -I '{}' cp '{}' "${DBS}/"
 done
 
 exit 0
