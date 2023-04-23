@@ -18,7 +18,7 @@ create table geoip2_network (
   postal_code text,
   latitude numeric,
   longitude numeric,
-  isp_id text,
+  isp_id int,
   is_legitimate_proxy bool,
   domain text,
   accuracy_radius int,
@@ -47,4 +47,17 @@ create table geoip2_location (
   time_zone text,
   is_in_european_union bool not null,
   primary key (geoname_id, locale_code)
+);
+
+create table geoip2_isp (
+  isp_id int not null,
+  isp text,
+  organization text,
+  autonomous_system_number int,
+  autonomous_system_organization text,
+  connection_type text,
+  user_type text,
+  mobile_country_code text,
+  mobile_network_code text,
+  primary key(isp_id)
 );
