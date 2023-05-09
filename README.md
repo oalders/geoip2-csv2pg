@@ -60,7 +60,7 @@ container ID by running `docker ps`. You can then use the id in the following
 command:
 
 ```text
-docker exec --rm -it CONTAINER_ID bash
+docker exec -it CONTAINER_ID bash
 ```
 
 Once you're inside the container, use the same command as above:
