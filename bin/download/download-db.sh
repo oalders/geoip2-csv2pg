@@ -24,8 +24,8 @@ for I in "${!DATABASES[@]}"; do
         SHA_FILE_OR_TIME=$FILE_OR_TIME
     fi
 
-    curl --location -z "$FILE_OR_TIME" -v "${URL}" -o "$ARCHIVE_NAME"
-    curl --location -z "$SHA_FILE_OR_TIME" -v "${URL}${SHA_SUFFIX}" -o "${ARCHIVE_NAME}${SHA_SUFFIX}"
+    curl --fail-with-body --location -z "$FILE_OR_TIME" "${URL}" -o "$ARCHIVE_NAME"
+    curl --fail-with-body --location -z "$SHA_FILE_OR_TIME" "${URL}${SHA_SUFFIX}" -o "${ARCHIVE_NAME}${SHA_SUFFIX}"
 
     SHA_FILE="${ARCHIVE_NAME}.downloaded.sha256"
     sha256sum "$ARCHIVE_NAME" >"$SHA_FILE"
