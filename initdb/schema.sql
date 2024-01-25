@@ -26,6 +26,7 @@ create table geoip2_network (
   subdivision_confidence int,
   city_confidence int,
   postal_confidence int,
+  is_anycast bool,
   product_id text NOT NULL
 );
 
@@ -60,4 +61,9 @@ create table geoip2_isp (
   mobile_country_code text,
   mobile_network_code text,
   primary key(isp_id)
+);
+
+create table connection_type_network (
+  network cidr not null,
+  connection_type text
 );

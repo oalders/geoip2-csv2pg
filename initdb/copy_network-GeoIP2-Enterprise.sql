@@ -20,7 +20,8 @@ copy geoip2_network(
   country_confidence,
   subdivision_confidence,
   city_confidence,
-  postal_confidence
+  postal_confidence,
+  is_anycast
 ) from :'file' with (format csv, header);
 
 UPDATE geoip2_network SET product_id = :'product_id' WHERE product_id IS NULL;
