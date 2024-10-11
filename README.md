@@ -68,7 +68,6 @@ If you have `psql` installed locally, use this command. When prompted for your p
 
 If you'd rather connect without a wrapper script, you can do something like:
 
-
 ```text
 psql -h localhost -U root -d mm_database
 ```
