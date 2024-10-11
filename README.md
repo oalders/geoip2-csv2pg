@@ -18,11 +18,13 @@ with this list you are ready to build the container.
 sudo docker-compose build mm-dl
 ```
 
+### Download the CSV files
+
 Run the following script, replacing the word `SEEKRIT` with a MaxMind license
 key.
 
 ```text
-MM_LICENSE_KEY=SEEKRIT ./bin/download/docker-run.sh
+MM_LICENSE_KEY=SEEKRIT sudo -E docker-compose up mm-dl
 ```
 
 You may run this script as often as you like. It will download a database if
@@ -31,13 +33,13 @@ none exists locally or if there is a newer version available to download.
 ## Step 2: Build Your Docker Image
 
 ```text
-./bin/docker-build.sh
+sudo docker-compose build mm-pg
 ```
 
 ## Step 3: Run Your Docker Image
 
 ```text
-./bin/docker-run.sh
+sudo docker-compose up mm-pg
 ```
 
 ## Step 4: Connect to PostgreSQL
@@ -60,7 +62,7 @@ container ID by running `docker ps`. You can then use the id in the following
 command:
 
 ```text
-docker exec -it CONTAINER_ID bash
+sudo docker-compose exec mm-pg bash
 ```
 
 Once you're inside the container, use the same command as above:

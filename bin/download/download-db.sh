@@ -3,7 +3,7 @@
 set -eux -o pipefail
 
 DATABASES=("GeoIP2-Anonymous-IP" "GeoLite2-City" "GeoIP2-Enterprise")
-SHARE_DIR=/root/share
+SHARE_DIR=/share
 mkdir -p $SHARE_DIR
 pushd $SHARE_DIR || exit 1
 find .

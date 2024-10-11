@@ -1,7 +1,23 @@
 ---
 services:
-  mm-dl:
+  mm-dl: # image with curl, for downloading CSVs
     build:
       context: .
       dockerfile: mm-dl-Dockerfile
     image: mm-dl
+    volumes:
+      - ./bin/download/:/root/bin/download/
+      - ./share/dbs:/share/dbs
+    environment:
+      - MM_LICENSE_KEY=${MM_LICENSE_KEY}
+  mm-pg: # populates database from CSV files
+    build:
+      context: .
+      dockerfile: mm-pg-Dockerfile
+    image: mm-pg
+    volumes:
+      - ./share/dbs:/share/dbs
+    environment:
+      POSTGRES_PASSWORD: foo
+    ports:
+      - "5432:5432"
