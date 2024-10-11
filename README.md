@@ -5,6 +5,22 @@ GeoLite2/GeoIP2 CSV databases into a local Docker 🐳 container which is runnin
 PostgreSQL. This is meant to provide an easy way to query the CSV data in
 PostgreSQL. It's not meant as a solution to deploy to production.
 
+## 🚨 Please note:
+
+- If you are on macOS, you will not need the `sudo` or `sudo -E` form of
+the commands.
+- If you are on a later version of `compose`, you'll need to use the
+  command `docker compose` rather than `docker-compose`.
+- If you don't want to pass the license key at the command line, create
+  a file in the root of the repository called `.env` and add your key
+  there.
+
+A `.env` file would look like:
+
+```shell
+MM_LICENSE_KEY=SEEKRIT
+```
+
 ## Step 1: Download the databases
 
 Before you get started, edit the `DATABASES` variable in
