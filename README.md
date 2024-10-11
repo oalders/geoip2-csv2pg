@@ -55,7 +55,7 @@ sudo docker-compose build mm-pg
 ## Step 3: Run Your Docker Image
 
 ```text
-sudo docker-compose up mm-pg
+sudo docker-compose up --remove-orphans mm-pg
 ```
 
 ## Step 4: Connect to PostgreSQL
