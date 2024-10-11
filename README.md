@@ -15,7 +15,7 @@ with this list you are ready to build the container.
 ### Build the Docker container which runs the downloader
 
 ```text
-./bin/download/docker-build.sh
+sudo docker-compose build mm-dl
 ```
 
 Run the following script, replacing the word `SEEKRIT` with a MaxMind license

@@ -1,0 +1,7 @@
+---
+services:
+  mm-dl:
+    build:
+      context: .
+      dockerfile: mm-dl-Dockerfile
+    image: mm-dl
