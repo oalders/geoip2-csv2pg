@@ -28,7 +28,7 @@ with this list you are ready to build the container.
 
 ### Build the Docker container which runs the downloader
 
-```text
+```shell
 sudo docker compose build mm-dl
 ```
 
@@ -37,7 +37,7 @@ sudo docker compose build mm-dl
 Run the following script, replacing the word `SEEKRIT` with a MaxMind license
 key.
 
-```text
+```shell
 MM_LICENSE_KEY=SEEKRIT sudo -E docker compose up mm-dl
 ```
 
@@ -46,13 +46,13 @@ none exists locally or if there is a newer version available to download.
 
 ## Step 2: Build Your Docker Image
 
-```text
+```shell
 sudo docker compose build mm-pg
 ```
 
 ## Step 3: Run Your Docker Image
 
-```text
+```shell
 sudo docker compose up --remove-orphans mm-pg
 ```
 
@@ -60,13 +60,13 @@ sudo docker compose up --remove-orphans mm-pg
 
 If you have `psql` installed locally, use this command. When prompted for your password, enter "foo".
 
-```text
+```shell
 ./bin/psql.sh
 ```
 
 If you'd rather connect without a wrapper script, you can do something like:
 
-```text
+```shell
 psql -h localhost -U root -d mm_database
 ```
 
@@ -74,12 +74,12 @@ If you'd like to connect to the Docker container directly, get the Docker
 container ID by running `docker ps`. You can then use the id in the following
 command:
 
-```text
+```shell
 sudo docker compose exec mm-pg bash
 ```
 
 Once you're inside the container, use the same command as above:
 
-```text
+```shell
 psql -h localhost -U root -d mm_database
 ```
